@@ -16,13 +16,13 @@ $this->db->query("SELECT * FROM Admins");
 }
 
 
-public function addAdmin($model){
-    $this->db->query('INSERT INTO `Admins`(`Matricule`, `Nom`, `Prenom`, `Role`, `Password`) VALUES (:Matricule,:Nom,:Prenom,:Role,:Password)');
-    $this->db->bind(':Matricule' ,$model['matricule']);
-    $this->db->bind(':Nom' ,$model['nom']);
-    $this->db->bind(':Prenom' ,$model['prenom']);
-    $this->db->bind(':Role' ,$model['role']);
-    $this->db->bind(':Password' ,$model['password']);
+public function addAdmin($dataAdmin){
+    $this->db->query('INSERT INTO `Admins`(`full_name`, `matricule`, `role`, `username`, `password`) VALUES (:full_name,:matricule,:role,:username,:password)');
+    $this->db->bind(':full_name' ,$dataAdmin['full_name']);
+    $this->db->bind(':matricule' ,$dataAdmin['matricule']);
+    $this->db->bind(':role' ,$dataAdmin['role']);
+    $this->db->bind(':username' ,$dataAdmin['username']);
+    $this->db->bind(':password' ,$dataAdmin['password']);
     $this->db->execute();
     // try{
     //     $this->db->execute();
@@ -33,9 +33,19 @@ public function addAdmin($model){
 }
 
 
-public function delete(){
-    $idAdmin = $_GET['idAdmin'];
-    $this->db->query('DELETE FROM `admins` WHERE idAdmin = 13');
+public function delete($idAdmin){
+    $this->db->query('DELETE FROM `admins` WHERE idAdmin = '.$idAdmin);
     $this->db->execute();
 }
+
+public function update($dataAdmin,$idAdmin){
+    $this->db->query("UPDATE admins SET full_name=:full_name, matricule = :matricule, role= :role, username = :username , password = :password WHERE idAdmin =$idAdmin");
+    $this->db->bind(':full_name' ,$dataAdmin['full_name']);
+    $this->db->bind(':matricule' ,$dataAdmin['matricule']);
+    $this->db->bind(':role' ,$dataAdmin['role']);
+    $this->db->bind(':username' ,$dataAdmin['username']);
+    $this->db->bind(':password' ,$dataAdmin['password']);
+    $this->db->execute();   
+}
+
 }

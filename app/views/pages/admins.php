@@ -21,7 +21,7 @@
                     <h3 class="text-dark mb-4">Team</h3>
                     <div class="card shadow">
                         <div class="card-header py-3 d-flex justify-content-between ">
-                            <p class="text-primary m-0 fw-bold">Students Info</p>
+                            <p class="text-primary m-0 fw-bold">Admins Info</p>
                             <?php require APPROOT . '/views/inc/addAdmin.php'; ?>
                         </div>
                         <div class="card-body">
@@ -37,10 +37,10 @@
                                     <thead>
                                         <tr>
                                             <th></th>
-                                            <th>Matricule</th>
-                                            <th>Nom</th>
-                                            <th>Prénom</th>
-                                            <th>Rôle</th>
+                                            <th>full_name</th>
+                                            <th>matricule</th>
+                                            <th>role</th>
+                                            <th>username</th>
                                             <th></th>
                                             <th></th>
                                         </tr>
@@ -56,14 +56,16 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td><?php echo $admin['Matricule']; ?></td>
-                                            <td><?php echo $admin['Nom']; ?></td>
-                                            <td><?php echo $admin['Prenom']; ?></td>
-                                            <td><?php echo $admin['Role']; ?></td>
+                                            <td><?php echo $admin['full_name']; ?></td>
+                                            <td><?php echo $admin['matricule']; ?></td>
+                                            <td><?php echo $admin['role']; ?></td>
+                                            <td><?php echo $admin['username']; ?></td>
                                             <td></td>
                                             <td>
-                                                <span class=" btn btn-success btn-sm text-white">update</span>
-                                                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                                <span class=" infoAdmin btn btn-success btn-sm text-white" data-bs-toggle="modal" data-bs-target="#modaleUpdate" data-bs-whatever="@mdo"> <span class="d-none"><?php echo $admin['idAdmin'].','.$admin['full_name'].','.$admin['matricule'].','.$admin['role'].','.$admin['username'].','.$admin['password']; ;  ?></span> update</span>
+                                                <a class="text-danger btnDelete"><span class="idContact d-none"><?php echo $admin['idAdmin'];?></span><i class="fas fa-user-times h5" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i></a>
+                                                <?php include_once APPROOT . '/views/inc/modalDelete.php'; ?> 
+                                                <?php include_once APPROOT . '/views/inc/modalUpdate.php'; ?> 
                                             </td>
                                         </tr>
 

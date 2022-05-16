@@ -1,7 +1,7 @@
 <?php
   class Pages extends Controller {
     public function __construct(){
-     
+      $this->adminModel = $this->model('admin');
     }
     
     public function index(){
@@ -39,6 +39,28 @@
       ];
 
       $this->view('pages/addProfessor', $data);
+    }
+
+    public function login(){
+      $data = [
+        'title' => 'loginr'
+      ];
+
+      $this->view('pages/login', $data);
+    }
+
+    // public function login(){
+    //   $data = [
+    //     'title' => 'loginr'
+    //   ];
+
+    //   $this->view('pages/login', $data);
+    // }
+
+    public function tableAdmin(){
+      $data = $this->adminModel->getAdmins();
+      // var_dump($data);
+      $this->view('pages/admins', $data);
     }
     
     
