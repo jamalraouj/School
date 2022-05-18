@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashboard - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-</head>
+<?php include_once APPROOT . '/views/inc/head.php'; ?>
 
 <body id="page-top">
     <div id="wrapper">
-        <?php include './includes/sidebar.php'; ?>
+    <?php include_once APPROOT . '/views/inc/sidebar.php'; ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-            <?php include './includes/header.php';?>
+            <?php include_once APPROOT . '/views/inc/navbar.php';; ?>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Statistiques</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
@@ -93,17 +81,8 @@
                     
                 </div>
             </div>
-            <footer class="bg-white sticky-footer">
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright"><span>Copyright School management © 2022</span></div>
-                </div>
-            </footer>
+            <?php include_once APPROOT . '/views/inc/footer.php'; ?>
+
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/chart.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/theme.js"></script>
-</body>
-
-</html>
+    <?php include_once APPROOT . '/views/inc/linkJS.php'; ?>

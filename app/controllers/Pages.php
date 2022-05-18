@@ -5,8 +5,9 @@
     }
     
     public function index(){
+      unset($_SESSION);
       $data = [
-        'title' => 'TraversyMVC',
+        'title' => 'Login',
       ];
      
       $this->view('pages/index', $data);
@@ -59,8 +60,15 @@
 
     public function tableAdmin(){
       $data = $this->adminModel->getAdmins();
-      // var_dump($data);
       $this->view('pages/admins', $data);
+    }
+
+    public function dashborad(){
+      $data = [
+        'title' => 'dashborad'
+      ];
+
+      $this->view('pages/dashborad', $data);
     }
     
     
