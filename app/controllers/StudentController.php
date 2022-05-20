@@ -28,7 +28,7 @@ class StudentController extends Controller {
         $this->StudentModel->delete($id_stu);
         self::tableStudent();
     }
-   public function Update($_GET['id']){
+   public function Update(){
        $id_stu = $_GET['id'];
        $this->StudentModel->Update( $_GET['id']);
    }
