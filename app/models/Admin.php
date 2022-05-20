@@ -39,7 +39,7 @@ public function delete($idAdmin){
 }
 
 public function update($dataAdmin,$idAdmin){
-    $this->db->query("UPDATE admins SET full_name=:full_name, matricule = :matricule, role= :role, username = :username , password = :password WHERE idAdmin =$idAdmin");
+    $this->db->query("UPDATE `admins` SET full_name=:full_name, matricule = :matricule, role= :role, username = :username , password = :password WHERE idAdmin =$idAdmin");
     $this->db->bind(':full_name' ,$dataAdmin['full_name']);
     $this->db->bind(':matricule' ,$dataAdmin['matricule']);
     $this->db->bind(':role' ,$dataAdmin['role']);
