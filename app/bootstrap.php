@@ -1,11 +1,10 @@
 <?php
   // Load Config
- 
+   
+ include_once 'config/config.php';
 
   // Autoload Core Libraries
   spl_autoload_register(function($className){
     // if($className!="Jamal")
-    require_once 'libraries/' . $className . '.php';
+    include_once 'libraries/' . $className . '.php';
   });
-  
- require_once 'config/config.php';
