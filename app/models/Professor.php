@@ -6,16 +6,11 @@
         $this->db = new Database();
     }
     
-    
     public function getUser(){
-    
-    
-    
+        
         $this->db->query("SELECT * FROM tests");
-       
-    
-       
-       return $this->db->single();
+
+        return $this->db->single();
     }
     
         public function addProfessor($model){
@@ -28,7 +23,23 @@
             $this->db->bind(5 ,$model['matiere']);
             $this->db->bind(6 ,$model['phone']);
             $this->db->execute();
-        
             
+        }
+        public function getAllProfessors(){//SELECT * FROM `professors` WHERE 1
+            $this->db->query('SELECT * FROM `professors`');
+            try{
+                return $this->db->resultSet();
+                
+            }catch(EXCEPTION $e){
+                return 'ERROR '. $e->getMessage();
+            }
+            
+        }
+        public function delete($id){
+            $this->db->query('DELETE FROM `professors` WHERE `id_pro` = ?');
+            $this->db->bind(1,$id);
+            $this->db->execute();
+            $this->getAllProfessors();
+
         }
     }
