@@ -19,7 +19,7 @@ public function add(){
 }
 
 public function tableAdmins(){
-    // $this->adminModel->getAdmins();
+    $this->adminModel->getAdmins();
     $data = $this->adminModel->getAdmins();
     $this->view('pages/admins',$data);
 }
@@ -37,6 +37,37 @@ public function update(){
     $idAdmin = (int)$dataAdmin['idAdmin'];
     $this-> adminModel->update($dataAdmin,$idAdmin);
     self::tableAdmins(); 
+}
+
+public function search(){
+    if(isset($_GET['search'])){
+        $search_name = $_GET['searchName'];
+        $dataSearch = $this->adminModel->search($search_name);
+        $this->view('pages/admins',$dataSearch);
+    }  
+}
+
+
+public function Login(){
+    if($_SERVER['REQUEST_METHOD'] == 'GET'){
+        $this->view('');
+     }else if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $dataAdmin = $this->adminModel->Login($username,$password);
+        if($dataAdmin == false){
+            $this->view('pages/index',false);
+        }
+
+        else{
+            $_SESSION['username'] = $username;
+            $this->view('pages/dashborad');
+        }
+
+        
+
+        // self::tableAdmins();
+     } 
 }
 
 }

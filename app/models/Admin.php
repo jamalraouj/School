@@ -10,6 +10,12 @@ class Admin
 }
 
 
+public function Login($username,$password){
+    $this->db->query("SELECT * FROM admins WHERE username = '$username' and password = '$password'");
+    return $this->db->single();
+}
+
+
 public function getAdmins(){
 $this->db->query("SELECT * FROM Admins");
    return $this->db->resultSet();
@@ -46,6 +52,13 @@ public function update($dataAdmin,$idAdmin){
     $this->db->bind(':username' ,$dataAdmin['username']);
     $this->db->bind(':password' ,$dataAdmin['password']);
     $this->db->execute();   
+}
+
+public function search($search_name){
+    $search_name = "%".$search_name."%";
+    $this->db->query("SELECT * FROM Admins WHERE username LIKE :name OR full_name LIKE :name");
+    $this->db->bind(':name' ,$search_name);
+    return $this->db->resultSet();
 }
 
 }
