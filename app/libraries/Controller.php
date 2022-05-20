@@ -24,6 +24,7 @@
         die('View does not exist');
       }
     }
+    
     public function postValid($post){//fun jamal
       $data = array_values($post);
       for($i=0 ; $i<count($data) ;$i++){

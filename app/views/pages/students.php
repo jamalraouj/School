@@ -1,30 +1,17 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Table - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="./assets/bootstrap/css/style.css">
-</head>
+<?php include_once APPROOT . '/views/inc/head.php'; ?>
 
 <body id="page-top">
     <div id="wrapper">
-    <?php include './includes/sidebar.php'; ?>
+        <?php include_once APPROOT . '/views/inc/sidebar.php'; ?>
         <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
-            <?php include './includes/header.php'; ?>
+            <div id="content position-relative">
+                <?php include APPROOT . '/views/inc/navbar.php'; ?>
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4">Team</h3>
                     <div class="card shadow">
                         <div class="card-header py-3 d-flex justify-content-between ">
                             <p class="text-primary m-0 fw-bold">Students Info</p>
-                            <?php include './includes/add.php';  ?>
+                            <?php include APPROOT . '/views/inc/addstudent.php';  ?>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -50,45 +37,46 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="user-info d-flex alignitems-center">
-                                                    <div class="user-info__img">
-                                                        <img class="me-3" src="./assets/img/avatars/avatar (1).svg" alt="User Img" width="55">
+                                        <?php
+                                        // var_dump($data);
+                                        foreach ($data as $Student) :
+                                        ?>
+                                            <tr>
+                                                <td>
+                                                    <div class="user-info d-flex alignitems-center">
+                                                        <div class="user-info__img">
+                                                            <img class="me-3" src="./assets/img/avatars/avatar (1).svg" alt="User Img" width="55">
+                                                        </div>
+                                                        <div class="user-info__basic">
+                                                            <h5 class="mb-0">jamal raouj</h5>
+                                                        </div>
                                                     </div>
-                                                    <div class="user-info__basic">
-                                                        <h5 class="mb-0">jamal raouj</h5>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>123</td>
-                                            <td>femme</td>
-                                            <td>classe 1</td>
-                                            <td>jamal</td>
-                                            <td>2000/03/04</td>
-                                            <td>jamal@gmail.com</td>
-                                            <td>2000/03/04</td>
-                                            <td>jamal raouj</td>
-                                            <td><span class=" btn btn-success btn-sm text-white">update</span></td>
-                                            <td>
-                                                <button class="btn btn-danger btn-sm">Delete</button>
-                                            </td>
-                                        </tr>
-                    
-                                        
+
+                                                </td>
+                                                <td><?php echo $Student['nom_complet']; ?></td>
+                                                <td><?php echo $Student['genre']; ?></td>
+                                                <td><?php echo $Student['matricule']; ?></td>
+                                                <td><?php echo $Student['parents']; ?></td>
+                                                <td><?php echo $Student['adresse']; ?></td>
+                                                <td><?php echo $Student['date_naissance']; ?></td>
+                                                <td><?php echo $Student['email']; ?></td>
+                                                <td><?php echo $Student['nom_parents']; ?></td>
+                                             <td> <a href="<?php echo URLROOT . '/StudentController/Update?id=' . $Student['id_stu']; ?>"> <button class=" btn btn-success btn-sm text-white">update</button> </td> </a>
+                                                <td>
+                                                    <a href="<?php echo URLROOT . '/StudentController/delete?id=' . $Student['id_stu']; ?>"> <button class="  btn btn-danger btn-sm">Delete</button></a>
+                                                </td>
+                                            </tr>
+
+                                        <?php endforeach;  ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+               
             </div>
-            <?php include './includes/footer.php'; ?>
+            <?php include APPROOT . '/includes/footer.php'; ?>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/theme.js"></script>
-</body>
-
-</html>
+    <?php include_once APPROOT . '/views/inc/linkJS.php'; ?>
