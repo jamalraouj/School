@@ -4,9 +4,10 @@
    * Creates URL & loads core controller
    * URL FORMAT - /controller/method/params
    */
+  session_start();
   class Core {
-    protected $currentController = 'Pages';
-    protected $currentMethod = 'index';
+    protected $currentController = 'Pages';//Curent [0]
+    protected $currentMethod = 'index'; //[1]
     protected $params = [];
 
     public function __construct(){
@@ -22,7 +23,7 @@
       // []
       if((isset($url[1])) && file_exists('../app/controllers/' . ucwords($url[0]). '.php')){
         // If exists, set as controller
-        $this->currentController = ucwords($url[0]);
+        $this->currentController = ucwords($url[0]);//'Curent'
         // Unset 0 Index
         unset($url[0]);
 
@@ -49,6 +50,8 @@
 
       // Get params
       // []
+      // [[0]=>'Curent'
+      //  , [1]=>'index']
       $this->params = $url ? array_values($url) : [];
 
      

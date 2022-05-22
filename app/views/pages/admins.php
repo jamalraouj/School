@@ -29,7 +29,7 @@
                                 <div class="col-md-6 text-nowrap">
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label"><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                                    <form method="GET" action="<?php echo URLROOT ?>/adminController/search" class="text-md-end dataTables_filter" id="dataTable_filter"><button class="btn btn-primary py-0" type="submit" name="search"><i class="fas fa-search"></i></button><label class="form-label"><input type="search" name="searchName" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></form>
                                 </div>
                             </div>
                             <div class="container table-responsive contacts list-contacts">
@@ -46,7 +46,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
+                                        <?php 
                                         foreach ($data as $admin):?>
                                         <tr>
                                             <td>
