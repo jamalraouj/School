@@ -6,17 +6,18 @@ class Student{
 
     public function __construct(){
         $this->db = new Database;
-
     }
-
     public function getStudent()
     {
         $this->db->query("SELECT * FROM students");
        $data =  $this->db->resultSet();
         return $data ;
     }
-
-
+    public function getOneStudent($id_stu){
+        $this->db->query("SELECT * FROM students WHERE `id_stu`=?");
+        $this->db->bind(1 , $id_stu);
+        return $this->db->single();
+    }
     public function addStudent($datastudent){
         var_dump($datastudent);
         $this->db->query('INSERT INTO `students`(`nom_complet`,`genre`, `matricule`, `class`, `parents`, `adresse`, `date_naissance`, `email`, `nom_parents`) VALUES (:nom_complet,:genre,:matricule,:class, :parents , :adresse, :date_naissance,:email, :nom_parents)');

@@ -50,20 +50,19 @@
                                                         <div class="user-info__basic">
                                                             <h5 class="mb-0">jamal raouj</h5>
                                                         </div>
-                                                    </div>
-
+                                                    </div
                                                 </td>
-                                                <td><?php echo $Student['nom_complet']; ?></td>
-                                                <td><?php echo $Student['genre']; ?></td>
-                                                <td><?php echo $Student['matricule']; ?></td>
-                                                <td><?php echo $Student['parents']; ?></td>
-                                                <td><?php echo $Student['adresse']; ?></td>
-                                                <td><?php echo $Student['date_naissance']; ?></td>
-                                                <td><?php echo $Student['email']; ?></td>
-                                                <td><?php echo $Student['nom_parents']; ?></td>
-                                             <td> <a href="<?php echo URLROOT . '/StudentController/Update?id=' . $Student['id_stu']; ?>"> <button class=" btn btn-success btn-sm text-white">update</button> </td> </a>
+                                                <td><?php echo $Student->nom_complet; ?></td>
+                                                <td><?php echo $Student->genre; ?></td>
+                                                <td><?php echo $Student->matricule; ?></td>
+                                                <td><?php echo $Student->parents; ?></td>
+                                                <td><?php echo $Student->adresse; ?></td>
+                                                <td><?php echo $Student->date_naissance; ?></td>
+                                                <td><?php echo $Student->email; ?></td>
+                                                <td><?php echo $Student->nom_parents; ?></td>
+                                             <td> <a href="<?php echo URLROOT . '/StudentController/getOneStudent?id=' . $Student->id_stu; ?>"> <button class=" btn btn-success btn-sm text-white">update</button> </td> </a>
                                                 <td>
-                                                    <a href="<?php echo URLROOT . '/StudentController/delete?id=' . $Student['id_stu']; ?>"> <button class="  btn btn-danger btn-sm">Delete</button></a>
+                                                    <a href="<?php echo URLROOT . '/StudentController/delete?id=' . $Student->id_stu; ?>"> <button class="  btn btn-danger btn-sm">Delete</button></a>
                                                 </td>
                                             </tr>
 

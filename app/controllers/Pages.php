@@ -65,6 +65,5 @@
       $data = $this->studentModel->getStudent();
       $this->view('pages/Sudents',$data);
     }
-    
-   
+       
   }

@@ -30,6 +30,15 @@ class StudentController extends Controller {
     }
    public function Update(){
        $id_stu = $_GET['id'];
-       $this->StudentModel->Update( $_GET['id']);
+       $this->StudentModel->Update($_GET['id']);
+       self::tableStudent();
    }
+
+   public function getOneStudent(){
+       $idStu = $_GET['id'];
+       $dataStd = $this->StudentModel->getOneStudent($idStu);    
+       var_dump($dataStd);   
+       $this->view('pages/modalUpdate',$dataStd);
+   }
+
 }
