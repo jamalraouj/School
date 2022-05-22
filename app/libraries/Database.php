@@ -67,7 +67,7 @@
     // Get result set as array of objects
     public function resultSet(){
       $this->execute();
-      return $this->stmt->fetchAll();
+      return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     // Get single record as object

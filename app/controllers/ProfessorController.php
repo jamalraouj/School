@@ -1,6 +1,8 @@
 <?php 
- class ProfessorController extends Controller{
-     
+ class ProfessorController extends InfoController{
+     private $classe;
+     private $matiere;
+     private $phone;
     public function __construct()
     {
         $this->professorModel = $this->model('Professor');
@@ -46,7 +48,7 @@
     //     $this->view('pages/professors', $allProfessors);
         $allProfessors = $this->professorModel->getAllProfessors();
       
-        $this->view('pages/professors', $allProfessors);
+        $this->view('pages/professors',  $allProfessors);
     }
     
 }
