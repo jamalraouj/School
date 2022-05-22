@@ -97,4 +97,9 @@
       $this->view('pages/Sudents',$data);
     }
        
+    public function modalUpdate(){
+
+      // $data = $this->studentModel->getStudent();
+      $this->view('pages/modalUpdate');
+    }
   }

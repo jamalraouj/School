@@ -2,7 +2,7 @@
 
 
 
-class StudentController extends Controller {
+class StudentController extends InfoController{
     public function __construct()
     {
      $this->StudentModel = $this->model('Student');
@@ -37,7 +37,7 @@ class StudentController extends Controller {
    public function getOneStudent(){
        $idStu = $_GET['id'];
        $dataStd = $this->StudentModel->getOneStudent($idStu);    
-       var_dump($dataStd);   
+         
        $this->view('pages/modalUpdate',$dataStd);
    }
 
