@@ -1,7 +1,9 @@
 <?php
 
 
-class AdminController extends Controller{
+class AdminController extends InfoController{
+    public $username;
+    public $password;
 
     public function __construct()
     {
