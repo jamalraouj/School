@@ -3,8 +3,10 @@
     public function __construct(){
       $this->professorModel = $this->model('Professor');
       $this->adminModel = $this->model('admin');
+
       $this->studentModel =$this->model('Student');
 
+      $this->parentModel = $this->model('parentM');
     }
     public function index(){
       unset($_SESSION);
@@ -25,6 +27,13 @@
         'title' => 'register'
       ];
       $this->view('pages/register', $data);
+    }
+    public function updateprofessor(){
+     
+      $data = [
+        'title' => 'Update Professor'
+      ];
+      $this->view('pages/updateprofessor', $data);
     }
     public function professors(){
       // array_push($data);
@@ -83,6 +92,7 @@
       $this->view('pages/dashborad', $data);
     }
     
+    
     // public function students(){
     //   $data = [
     //     'title' => 'students'
@@ -92,6 +102,22 @@
 
     //   $this->view('pages/students',$data);
     // }
+  
+    public function parents(){
+      $data = [
+        'title' => 'parents'
+      ];
+      $data = $this->parentModel->getParents();
+      $this->view('pages/parents', $data);
+    }
+    public function updatP(){
+      $data = [
+        'title' => 'pages/Update Parent'
+      ];
+
+      $this->view('pages/updatP', $data);
+    }
+    
     public function students(){
       $data = [
         'title' => 'dashborad'
