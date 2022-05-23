@@ -23,7 +23,13 @@
                                 <div class="mb-4 d-flex gap-4">
                                   <div class="role">
                                     <label for="role" class="form-label">role</label> <span class="valid text-danger"></span>
-                                    <input placeholder="Enter role" type="text" class="form-control" id="role" aria-describedby="emailHelp" name="role">
+                                    <select class="form-select" aria-label="Default select example" name="role">
+                                      <option selected>Open this select menu</option>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                    </select>
+                                    <!-- <input placeholder="Enter role" type="text" class="form-control" id="role" aria-describedby="emailHelp" name="role"> -->
                                   </div>
                                   <div class="phone">
                                     <label for="username" class="form-label">username</label> <span class="valid text-danger"></span>

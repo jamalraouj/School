@@ -41,23 +41,7 @@
 
       $this->view('pages/addProfessor', $data);
     }
-
-    public function login(){
-      $data = [
-        'title' => 'loginr'
-      ];
-
-      $this->view('pages/login', $data);
-    }
-
-    // public function login(){
-    //   $data = [
-    //     'title' => 'loginr'
-    //   ];
-
-    //   $this->view('pages/login', $data);
-    // }
-
+    
     public function tableAdmin(){
       $data = $this->adminModel->getAdmins();
       $this->view('pages/admins', $data);
