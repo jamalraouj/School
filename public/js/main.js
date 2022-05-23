@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // form validation sign up
 let formAdd = document.getElementById("formAdd");
 let error = document.querySelectorAll(".valid");
@@ -66,3 +67,15 @@ formAdd.addEventListener("submit",(e)=>{
 })
 
 console.log('fdf');
+=======
+let modUpSt = document.getElementById("#modelstudent");
+let close = document.getElementById("#close");
+let btn = document.getElementById("#btn");
+
+
+btn.addEventListener('click',function(){
+    
+})
+
+
+>>>>>>> main
