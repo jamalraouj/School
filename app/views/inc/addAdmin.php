@@ -24,10 +24,10 @@
                                   <div class="role">
                                     <label for="role" class="form-label">role</label> <span class="valid text-danger"></span>
                                     <select class="form-select" aria-label="Default select example" name="role">
-                                      <option selected>Open this select menu</option>
-                                      <option value="1">One</option>
-                                      <option value="2">Two</option>
-                                      <option value="3">Three</option>
+                                      <option selected>Role</option>
+                                      <option value="update/delete/add">update/delete/add</option>
+                                      <option value="View">View</option>
+                                      <option value="Add">Add</option>
                                     </select>
                                     <!-- <input placeholder="Enter role" type="text" class="form-control" id="role" aria-describedby="emailHelp" name="role"> -->
                                   </div>
