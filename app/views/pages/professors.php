@@ -47,7 +47,7 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tbody> 
+                                    <tbody> <?php echo (APPROOT) ?>
                                         <?php for($i=0; $i <count($data) ; $i++) {
 
                                                 
@@ -56,7 +56,7 @@
                                             <td>
                                                 <div class="user-info d-flex alignitems-center">
                                                     <div class="user-info__img">
-                                                        <img class="me-3" src="./assets/img/avatars/avatar (1).svg" alt="User Img" width="55">
+                                                        <img class="me-3" src="<?php echo dirname(APPROOT) ?>/public/images/profile.png" alt="User Img" width="55">
                                                     </div>
                                                     
                                                 </div>

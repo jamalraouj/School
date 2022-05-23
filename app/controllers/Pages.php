@@ -1,10 +1,9 @@
 <?php
   class Pages extends Controller{
     public function __construct(){
-      
       $this->professorModel = $this->model('Professor');
-
       $this->adminModel = $this->model('admin');
+      $this->studentModel =$this->model('Student');
 
     }
     public function index(){
@@ -84,17 +83,28 @@
       $this->view('pages/dashborad', $data);
     }
     
+    // public function students(){
+    //   $data = [
+    //     'title' => 'students'
+    //   ];
+      
+      
+
+    //   $this->view('pages/students',$data);
+    // }
     public function students(){
       $data = [
-        'title' => 'students'
+        'title' => 'dashborad'
       ];
-
+      $data = $this->studentModel->getStudent();
       $this->view('pages/students',$data);
     }
-    public function tableStudiant(){
-
-      $data = $this->studentModel->getStudent();
-      $this->view('pages/Sudents',$data);
+    public function OneStudent(){
+      $data = [
+        'title' =>'modifierStudent'
+      ];
+      $data = $this->studentModel->getOneStudent();
+      $this->view('pages/modalUpdate',$data);
     }
        
     public function modalUpdate(){

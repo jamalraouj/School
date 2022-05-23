@@ -1,4 +1,7 @@
-<?php include_once APPROOT . '/views/inc/head.php'; ?>
+
+<?php
+$data += ['title'=>'Students'];
+include_once APPROOT . '/views/inc/head.php'; ?>
 
 <body id="page-top">
     <div id="wrapper">
@@ -38,6 +41,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
+                                        var_dump($data);
                                         // var_dump($data);
                                         foreach ($data as $Student) :
                                         ?>

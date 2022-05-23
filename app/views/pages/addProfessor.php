@@ -19,7 +19,7 @@
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="img">Image Admin</label>
-                                                <input type="file" id="img" class="form-control" name="img"/>
+                                                <input type="file" id="img" value="image progile" class="form-control" name="img_profile" />
 
                                             </div>
                                         </div> -->
