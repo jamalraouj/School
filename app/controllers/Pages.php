@@ -5,7 +5,7 @@
       $this->professorModel = $this->model('Professor');
 
       $this->adminModel = $this->model('admin');
-
+      $this->parentModel = $this->model('parentM');
     }
     public function index(){
       unset($_SESSION);
@@ -91,6 +91,20 @@
       $this->view('pages/dashborad', $data);
     }
     
+    public function parents(){
+      $data = [
+        'title' => 'parents'
+      ];
+      $data = $this->parentModel->getParents();
+      $this->view('pages/parents', $data);
+    }
+    public function updatP(){
+      $data = [
+        'title' => 'pages/Update Parent'
+      ];
+
+      $this->view('pages/updatP', $data);
+    }
     public function students(){
       $data = [
         'title' => 'students'
