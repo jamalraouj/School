@@ -1,6 +1,9 @@
 <?php
+
   class Pages extends Controller{
     public function __construct(){
+      $this->checkSessions();
+      
       $this->professorModel = $this->model('Professor');
       $this->adminModel = $this->model('admin');
 
@@ -138,4 +141,12 @@
       // $data = $this->studentModel->getStudent();
       $this->view('pages/modalUpdate');
     }
+    
+   public function checkSessions(){
+      
+      if(!isset($_SESSION['username'])){
+        //  header('location:'.URLROOT.'/pages/index');
+         $this->view('pages/index');
+      }
+   }
   }
