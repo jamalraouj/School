@@ -56,14 +56,14 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td><?php echo $admin['full_name']; ?></td>
-                                            <td><?php echo $admin['matricule']; ?></td>
-                                            <td><?php echo $admin['role']; ?></td>
-                                            <td><?php echo $admin['username']; ?></td>
+                                            <td><?php echo $admin->full_name; ?></td>
+                                            <td><?php echo $admin->matricule; ?></td>
+                                            <td><?php echo $admin->role; ?></td>
+                                            <td><?php echo $admin->username; ?></td>
                                             <td></td>
                                             <td>
-                                                <span class=" infoAdmin btn btn-success btn-sm text-white" data-bs-toggle="modal" data-bs-target="#modaleUpdate" data-bs-whatever="@mdo"> <span class="d-none"><?php echo $admin['idAdmin'].','.$admin['full_name'].','.$admin['matricule'].','.$admin['role'].','.$admin['username'].','.$admin['password']; ;  ?></span> update</span>
-                                                <a class="text-danger btnDelete"><span class="idContact d-none"><?php echo $admin['idAdmin'];?></span><i class="fas fa-user-times h5" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i></a>
+                                                <span class=" infoAdmin btn btn-success btn-sm text-white" data-bs-toggle="modal" data-bs-target="#modaleUpdate" data-bs-whatever="@mdo"> <span class="d-none"><?php echo $admin->idAdmin.','.$admin->full_name.','.$admin->matricule.','.$admin->role.','.$admin->username.','.$admin->password ;  ?></span> update</span>
+                                                <a class="text-danger btnDelete"><span class="idContact d-none"><?php echo $admin->idAdmin;?></span><i class="fas fa-user-times h5" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i></a>
                                                 <?php include_once APPROOT . '/views/inc/modalDelete.php'; ?> 
                                                 <?php include_once APPROOT . '/views/inc/modalUpdate.php'; ?> 
                                             </td>

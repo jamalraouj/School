@@ -2,7 +2,9 @@
 
 
 
-class StudentController extends Controller {
+class StudentController extends InfoController{
+
+    
     public function __construct()
     {
      $this->StudentModel = $this->model('Student');
@@ -12,13 +14,13 @@ class StudentController extends Controller {
         if(isset($_POST['submit'])) {
             $data = $_POST;
            $this->StudentModel->addStudent($data);
-           self::tableStudent();
+           self::getStudent();
         }
         else{
             $this->view('page/students');
         }
     }
-    public function tableStudent(){      
+    public function getStudent(){      
         $data = $this->StudentModel->getStudent();     
         $this->view('pages/Students',$data);
     }
@@ -26,10 +28,23 @@ class StudentController extends Controller {
         $id_stu = $_GET['id'];
         // echo $id_stu;
         $this->StudentModel->delete($id_stu);
-        self::tableStudent();
+        self::getStudent();
     }
    public function Update(){
-       $id_stu = $_GET['id'];
-       $this->StudentModel->Update( $_GET['id']);
+       $id = $_GET['id'];
+       $data = $_POST;
+       $this->StudentModel->Update($id ,$data );
+       header('location:'.URLROOT.'/pages/students');
    }
+
+   public function getOneStudent(){
+       $idStu = $_GET['id'];
+    //    var_dump($idStu);
+   
+       $dataStd = $this->StudentModel->getOneStudent($idStu);    
+        //   header('location:'.URLROOT.'/pages/modalUpdate');
+       $this->view('pages/modalUpdate',(array) $dataStd);
+    //    header('location:'.URLROOT.'/pages/modalUpdate');
+   }
+
 }
