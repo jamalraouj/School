@@ -6,8 +6,8 @@
    */
   session_start();
   class Core {
-    protected $currentController = 'Pages';//Curent [0]
-    protected $currentMethod = 'index'; //[1]
+    protected $currentController = 'Pages';// takes name of file / class in controller
+    protected $currentMethod = 'index';
     protected $params = [];
 
     public function __construct(){
@@ -26,8 +26,6 @@
         $this->currentController = ucwords($url[0]);//'Curent'
         // Unset 0 Index
         unset($url[0]);
-
-       
       }
       
       // Require the controller
@@ -63,9 +61,10 @@
 // /jamal/index
     public function getUrl(){
       if(isset($_GET['url'])){
-        $url = rtrim($_GET['url'], '/');
+        $url = rtrim($_GET['url'], '/');//remove last slash
         $url = filter_var($url, FILTER_SANITIZE_URL);
-        $url = explode('/', $url); 
+      
+        $url = explode('/', $url); // 
         return $url;
       }
     }
