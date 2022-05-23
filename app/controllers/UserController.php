@@ -18,8 +18,8 @@ public function register(){
     $data =  $_POST;
     
     $this->userModel->regitry($data);
-
-   $this->view('pages/contact',$data);
+    $this->view('pages/contact',$data);
+    
  }
 
 }

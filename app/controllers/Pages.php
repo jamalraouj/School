@@ -1,6 +1,8 @@
 <?php
+
   class Pages extends Controller{
     public function __construct(){
+      $this->checkSessions();
       
       $this->professorModel = $this->model('Professor');
 
@@ -118,5 +120,11 @@
       $this->view('pages/Sudents',$data);
     }
     
-   
+   public function checkSessions(){
+      
+      if(!isset($_SESSION['username'])){
+        //  header('location:'.URLROOT.'/pages/index');
+         $this->view('pages/index');
+      }
+   }
   }
