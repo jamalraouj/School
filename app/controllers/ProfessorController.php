@@ -59,5 +59,34 @@
       
         $this->view('pages/professors',  $allProfessors);
     }
-    
+    public function showprofessor(){
+        if(isset($_GET['id'])){
+            $this->id_pro = $_GET['id'];
+            $data = $this->professorModel->getProfessor($this->id_pro);
+            // header("location:".URLROOT ."/pages/updateprofessor");
+            $this->view('pages/updateprofessor',(array) $data);
+        }
+    }
+
+    public function updateProfessor(){
+        // if(isset($_POST)){
+
+            $data = $_POST;
+            // unset($_POST);
+            // if(!$this->postValid($data)){
+            //     unset($data);
+            //     return;
+            // }
+            $this->id_pro = $_GET['id'];
+            $this->setNomComplet($data['name']);
+            $this->setGenre($data['genre']);
+            $this->setMatricule($data['matricule']);
+            // $this->setImg_profile($data['img_profile']);
+            $this->classe = $data['class'];
+            $this->matiere =$data['matiere'];
+            $this->phone = $data['phone'];
+            $this->professorModel->updateprofessor($this->id_pro,$this->getNomComplet() , $this->getGenre() , $this->getMatricule() , $this->classe ,$this->matiere ,$this->phone);
+            header("location:".URLROOT ."/pages/professors");
+
+    }
 }

@@ -8,10 +8,15 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="./assets/bootstrap/css/style.css"> -->
-    <?php include_once APPROOT . '/views/inc/head.php'; ?>
+
+    <?php 
+    // array_push($data ,'title'=>'Professor');
+    $data += ['title' => 'Professor'];
+    include_once APPROOT . '/views/inc/head.php'; ?>
 
 
 <body id="page-top">
+    
     <div id="wrapper">
     <?php include_once APPROOT . '/views/inc/sidebar.php'; ?>
         <div class="d-flex flex-column" id="content-wrapper">
@@ -47,16 +52,15 @@
                                             
                                         </tr>
                                     </thead>
-                                    <tbody> <?php echo (APPROOT) ?>
+                                    <tbody>
                                         <?php for($i=0; $i <count($data) ; $i++) {
 
-                                                
                                            ?>
                                         <tr>
                                             <td>
                                                 <div class="user-info d-flex alignitems-center">
                                                     <div class="user-info__img">
-                                                        <img class="me-3" src="<?php echo dirname(APPROOT) ?>/public/images/profile.png" alt="User Img" width="55">
+                                                        <img class="me-3" src="<?php dirname(APPROOT) ?>/public/images/profile.png" alt="User Img" width="55">
                                                     </div>
                                                     
                                                 </div>
@@ -68,10 +72,11 @@
                                             <td><?php echo $data[$i]->class?></td>
                                             <td><?php echo $data[$i]->matiere?></td>
                                             <td><?php echo $data[$i]->phone?></td>
-                                            <td><span class=" btn btn-success btn-sm text-white">update</span></td>
+                                            <td><a href="<?php echo URLROOT?>/ProfessorController/showprofessor?id=<?php echo $data[$i]->id_pro ?>"class=" btn btn-success btn-sm text-white">update</a></td>
                                             <td>
                                                 <a href="<?php echo URLROOT?>/ProfessorController/deletePro?id=<?php echo $data[$i]->id_pro ?>" class="btn btn-danger btn-sm">Delete</a>
                                             </td>
+                                            
                                             
                                         </tr>
                     <?php  } ?>

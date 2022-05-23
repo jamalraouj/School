@@ -42,4 +42,21 @@
             $this->getAllProfessors();
 
         }
+        public function getProfessor($id){//for update
+            $this->db->query('SELECT * FROM `professors` WHERE `id_pro` = ?');
+            $this->db->bind(1 ,$id );
+            return $this->db->single();
+        }
+        public function updateprofessor($id ,$nom , $genre , $matricule ,$class ,$matiere ,$phone){
+            $this->db->query('UPDATE `professors` SET `nom_complet`= ?,`genre`= ?,`matricule`= ?,`class`= ?,`matiere`= ?,`phone`= ? WHERE `id_pro`=  ?');
+            $this->db->bind(1 ,$nom);
+            $this->db->bind(2 ,$genre);
+            $this->db->bind(3 ,$matricule);
+            $this->db->bind(4 ,$class);
+            $this->db->bind(5 ,$matiere);
+            $this->db->bind(6 ,$phone);
+            $this->db->bind(7 ,$id);
+
+            $this->db->execute();
+        }
     }
