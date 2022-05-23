@@ -19,7 +19,7 @@
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="img">Image Admin</label>
-                                                <input type="file" id="img" value="image progile" class="form-control" name="img_profile" />
+                                                <input type="file" id="img" class="form-control" name="img"/>
 
                                             </div>
                                         </div> -->
@@ -85,10 +85,10 @@
                                 </div>
                                 <!-- <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                        class="img-fluid" alt="Sample image">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
 
-                    </div> -->
+              </div> -->
                             </div>
                         </div>
                     </div>

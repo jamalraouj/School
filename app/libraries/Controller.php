@@ -24,10 +24,11 @@
         die('View does not exist');
       }
     }
+    
     public function postValid($post){//fun jamal
       $data = array_values($post);
       for($i=0 ; $i<count($data) ;$i++){
-          
+        
           if(!preg_match("/^[a-zA-Z0-9]{3,}$/", $data[$i]) || $data[$i] == ''){
             return false;
           }

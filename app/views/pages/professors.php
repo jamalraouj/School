@@ -16,13 +16,13 @@
     <?php include_once APPROOT . '/views/inc/sidebar.php'; ?>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-            <?php include_once APPROOT . '/views/inc/navbar.php';; ?>
+            <?php include_once APPROOT . '/views/inc/navbar.php';?>
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4">Team</h3>
                     <div class="card shadow">
                         <div class="card-header py-3 d-flex justify-content-between ">
-                            <p class="text-primary m-0 fw-bold">Students Info</p>
-                            <button class="btn btn-primary">Add Students</button>
+                            <p class="text-primary m-0 fw-bold">Professor Info</p>
+                            <a href="<?php echo URLROOT?>/pages/addProfessor" class="btn btn-primary ">Add Professor</a>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -35,44 +35,46 @@
                             <div class="container table-responsive contacts list-contacts">
                                 <table class="table">
                                     <thead>
+                                        <!-- <?php //var_dump($data); ?> -->
                                         <tr>
+                                            <th></th>
                                             <th>Nom complet</th>
-                                            <th>Matricule</th>
                                             <th>Genre</th>
+                                            <th>Matricule</th>
                                             <th>Class</th>
-                                            <th>Parents</th>
-                                            <th>Adresse</th>
-                                            <th>Date de naissance</th>
-                                            <th>Email</th>
-                                            <th>nom du parents</th>
+                                            <th>Matière</th>
+                                            <th>Phone</th>
+                                            
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody> <?php echo (APPROOT) ?>
+                                        <?php for($i=0; $i <count($data) ; $i++) {
+
+                                                
+                                           ?>
                                         <tr>
                                             <td>
                                                 <div class="user-info d-flex alignitems-center">
                                                     <div class="user-info__img">
-                                                        <img class="me-3" src="./assets/img/avatars/avatar (1).svg" alt="User Img" width="55">
+                                                        <img class="me-3" src="<?php echo dirname(APPROOT) ?>/public/images/profile.png" alt="User Img" width="55">
                                                     </div>
-                                                    <div class="user-info__basic">
-                                                        <h5 class="mb-0">jamal raouj</h5>
-                                                    </div>
+                                                    
                                                 </div>
                                             </td>
-                                            <td>123</td>
-                                            <td>femme</td>
-                                            <td>classe 1</td>
-                                            <td>jamal</td>
-                                            <td>2000/03/04</td>
-                                            <td>jamal@gmail.com</td>
-                                            <td>2000/03/04</td>
-                                            <td>jamal raouj</td>
+                                            
+                                            <td><?php echo $data[$i]->nom_complet?></td>
+                                            <td><?php echo $data[$i]->genre?></td>
+                                            <td><?php echo $data[$i]->matricule?></td>
+                                            <td><?php echo $data[$i]->class?></td>
+                                            <td><?php echo $data[$i]->matiere?></td>
+                                            <td><?php echo $data[$i]->phone?></td>
                                             <td><span class=" btn btn-success btn-sm text-white">update</span></td>
                                             <td>
-                                                <button class="btn btn-danger btn-sm">Delete</button>
+                                                <a href="<?php echo URLROOT?>/ProfessorController/deletePro?id=<?php echo $data[$i]->id_pro ?>" class="btn btn-danger btn-sm">Delete</a>
                                             </td>
+                                            
                                         </tr>
-                    
+                    <?php  } ?>
                                         
                                     </tbody>
                                 </table>
