@@ -5,7 +5,7 @@
    * URL FORMAT - /controller/method/params
    */
   class Core {
-    protected $currentController = 'Pages';
+    protected $currentController = 'Pages';// takes name of file / class in controller
     protected $currentMethod = 'index';
     protected $params = [];
 
@@ -25,8 +25,6 @@
         $this->currentController = ucwords($url[0]);
         // Unset 0 Index
         unset($url[0]);
-
-       
       }
       
       // Require the controller
@@ -60,10 +58,10 @@
 // /jamal/index
     public function getUrl(){
       if(isset($_GET['url'])){
-        $url = rtrim($_GET['url'], '/');
+        $url = rtrim($_GET['url'], '/');//remove last slash
         $url = filter_var($url, FILTER_SANITIZE_URL);
       
-        $url = explode('/', $url); 
+        $url = explode('/', $url); // 
         return $url;
       }
     }

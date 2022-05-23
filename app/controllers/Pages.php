@@ -2,6 +2,7 @@
   class Pages extends Controller {
     public function __construct(){
       $this->adminModel = $this->model('admin');
+      $this->parentModel = $this->model('parentM');
     }
     
     public function index(){
@@ -63,6 +64,18 @@
       $this->view('pages/admins', $data);
     }
     
-    
-   
+    public function parents(){
+      $data = [
+        'title' => 'parents'
+      ];
+      $data = $this->parentModel->getParents();
+      $this->view('pages/parents', $data);
+    }
+    public function updatP(){
+      $data = [
+        'title' => 'pages/Update Parent'
+      ];
+
+      $this->view('pages/updatP', $data);
+    }
   }
