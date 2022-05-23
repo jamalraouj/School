@@ -14,17 +14,79 @@
 </head>
 
 <body id="page-top">
+ 
+
     <div id="wrapper">
-    <?php include './includes/sidebar.php'; ?>
-        <div class="d-flex flex-column" id="content-wrapper">
+    <?php include_once APPROOT . '/views/inc/sidebar.php'; ?>        <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-            <?php include './includes/header.php'; ?>
+            <link rel="stylesheet" href="./assets/bootstrap/css/style.css"> 
+    <?php include_once APPROOT . '/views/inc/head.php'; ?>
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4">Team</h3>
                     <div class="card shadow">
                         <div class="card-header py-3 d-flex justify-content-between ">
-                            <p class="text-primary m-0 fw-bold">Students Info</p>
-                            <button class="btn btn-primary">Add Students</button>
+                            <p class="text-primary m-0 fw-bold">Parents Info</p>
+                            <div class="button-add-student">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">add admin</button>
+                        <!-- Model add -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add Parents</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                              <form class="p-3" id="formAdd" method="POST" action="<?php echo URLROOT ?>/parentcontroller/addParent">
+                              <p class="vide-msg alert-danger text-center "></p>
+                                <div class="mb-4 d-flex gap-4">
+                                  <div class="name">
+                                    <label for="full_name" class="form-label">nom_complet</label> <span class="valid text-danger"></span>
+                                    <input placeholder="Enter full_namet" type="text" class="form-control" id="full_name" aria-describedby="emailHelp" name="nom_complet">
+                                  </div>
+                                  <div class="phone">
+                                    <label for="matricule" class="form-label">matricule</label> <span class="valid text-danger"></span>
+                                    <input placeholder="Enter matricule" type="text" class="form-control" id="matricule" aria-describedby="emailHelp" name="matricule">
+                                  </div>
+                                </div>
+                                <div class="mb-4 d-flex gap-4">
+                                  <div class="role">
+                                    <label for="role" class="form-label">address</label> <span class="valid text-danger"></span>
+                                    <input placeholder="Enter role" type="text" class="form-control" id="role" aria-describedby="emailHelp" name="adresse">
+                                  </div>
+                                  <div class="phone">
+                                    <label for="username" class="form-label">phone</label> <span class="valid text-danger"></span>
+                                    <input placeholder="Enter username" type="text" class="form-control" id="username" aria-describedby="emailHelp" name="phone">
+                                  </div>
+                                </div>
+                                <div class="mb-4 d-flex gap-4">
+                                  <div class="name">
+                                    <label for="text" class="form-label">genre</label> <span class="valid text-danger"></span>
+                                    <input placeholder="Enter Mot de Passe" type="text" class="form-control" id="name" aria-describedby="emailHelp" name="genre">
+                                  </div>
+                                  <div class="phone">
+                                    <label for="text" class="form-label"> jobs</label> <span class="valid text-danger"></span>
+                                    <input placeholder="Enter Mot de Passe" type="text" class="form-control" id="cpassword" aria-describedby="emailHelp" name="job">
+                                  </div>
+                          
+                                </div>
+                                <div class="button">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" name="submitContact" class="btn btn-primary">add</button>
+
+                                </div>
+                              </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- end model add -->
+
+
+                        <!-- Model update -->
+                       
+                        <!-- end model update -->
+                    </div>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -35,60 +97,53 @@
                                 </div>
                             </div>
                             <div class="container table-responsive contacts list-contacts">
-                                <table class="table">
+                            <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th>Nom complet</th>
-                                            <th>Matricule</th>
-                                            <th>Genre</th>
-                                            <th>Class</th>
-                                            <th>Parents</th>
-                                            <th>Adresse</th>
-                                            <th>Date de naissance</th>
-                                            <th>Email</th>
-                                            <th>nom du parents</th>
-                                        </tr>
+                                    <tr>
+                             
+                             <th>Nom-complet</th>
+                             <th>Matricule</th>
+                             <th>Genre</th>
+                             <th>jobe</th>
+                             <th>Adresse</th>
+                             <th>phone</th>
+
+    
+
+
+                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                        // var_dump($data);
+                                         for($i=0; $i <count($data) ; $i++) {?>
                                         <tr>
-                                            <td>
-                                                <div class="user-info d-flex alignitems-center">
-                                                    <div class="user-info__img">
-                                                        <img class="me-3" src="./assets/img/avatars/avatar (1).svg" alt="User Img" width="55">
-                                                    </div>
-                                                    <div class="user-info__basic">
-                                                        <h5 class="mb-0">jamal raouj</h5>
-                                                    </div>
-                                                </div>
+                                         
                                             </td>
-                                            <td>123</td>
-                                            <td>femme</td>
-                                            <td>classe 1</td>
-                                            <td>jamal</td>
-                                            <td>2000/03/04</td>
-                                            <td>jamal@gmail.com</td>
-                                            <td>2000/03/04</td>
-                                            <td>jamal raouj</td>
-                                            <td><span class=" btn btn-success btn-sm text-white">update</span></td>
+                                            <td><?php echo $data[$i]->nom_complet; ?></td>
+                                            <td><?php echo $data[$i]->matricule; ?></td>
+                                            <td><?php echo $data[$i]->genre ?></td>
+                                            <td><?php echo $data[$i]->job; ?></td>
+                                            <td><?php echo $data[$i]->adresse; ?></td>
+                                            <td><?php echo $data[$i]->phone; ?></td>
+                                            <td></td>
                                             <td>
-                                                <button class="btn btn-danger btn-sm">Delete</button>
+                                                <a href="<?php echo URLROOT.'/ParentController/getParent?id='.$data[$i]->id_parent;?>"><button class=" infoAdmin btn btn-success btn-sm text-white"> <span class="d-none">
+                                                    </span> update</button></a>
+                                                <a href="<?php echo URLROOT.'/ParentController/delete?id='.$data[$i]->id_parent;?>" >  <button  class="  btn btn-danger btn-sm">Delete</button></a>                                     
                                             </td>
                                         </tr>
-                    
-                                        
+
+                                        <?php }  ?>
                                     </tbody>
                                 </table>
+                              
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php include './includes/footer.php'; ?>
+            <?php include_once APPROOT . '/views/inc/footer.php'; ?>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/theme.js"></script>
-</body>
-
-</html>
+    <?php include_once APPROOT . '/views/inc/linkJS.php'; ?>
