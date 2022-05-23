@@ -115,25 +115,26 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        foreach ($data as $parents):?>
+                                        // var_dump($data);
+                                         for($i=0; $i <count($data) ; $i++) {?>
                                         <tr>
                                          
                                             </td>
-                                            <td><?php echo $parents['nom_complet']; ?></td>
-                                            <td><?php echo $parents['matricule']; ?></td>
-                                            <td><?php echo $parents['genre']; ?></td>
-                                            <td><?php echo $parents['job']; ?></td>
-                                            <td><?php echo $parents['adresse']; ?></td>
-                                            <td><?php echo $parents['phone']; ?></td>
+                                            <td><?php echo $data[$i]->nom_complet; ?></td>
+                                            <td><?php echo $data[$i]->matricule; ?></td>
+                                            <td><?php echo $data[$i]->genre ?></td>
+                                            <td><?php echo $data[$i]->job; ?></td>
+                                            <td><?php echo $data[$i]->adresse; ?></td>
+                                            <td><?php echo $data[$i]->phone; ?></td>
                                             <td></td>
                                             <td>
-                                                <a href="<?php echo URLROOT.'/ParentController/getParent?id='.$parents['id_parent'];?>"><button class=" infoAdmin btn btn-success btn-sm text-white"> <span class="d-none">
+                                                <a href="<?php echo URLROOT.'/ParentController/getParent?id='.$data[$i]->id_parent;?>"><button class=" infoAdmin btn btn-success btn-sm text-white"> <span class="d-none">
                                                     </span> update</button></a>
-                                                <a href="<?php echo URLROOT.'/ParentController/delete?id='.$parents['id_parent'];?>" >  <button  class="  btn btn-danger btn-sm">Delete</button></a>                                     
+                                                <a href="<?php echo URLROOT.'/ParentController/delete?id='.$data[$i]->id_parent;?>" >  <button  class="  btn btn-danger btn-sm">Delete</button></a>                                     
                                             </td>
                                         </tr>
 
-                                        <?php endforeach;  ?>
+                                        <?php }  ?>
                                     </tbody>
                                 </table>
                               
