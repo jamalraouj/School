@@ -11,9 +11,8 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add Professor</p>
-
-                                    <form method="POST" action="<?php echo URLROOT ?>/ProfessorController/addProfessor" class="mx-1 mx-md-4">
+                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Update Professor</p>
+                                    <form method="POST" action="<?php echo URLROOT ?>/ProfessorController/updateProfessor?id=<?php echo $data['id_pro']?>" class="mx-1 mx-md-4">
 
                                     <!-- <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -27,7 +26,7 @@
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="name">Nom Complet</label>
-                                                <input type="text" id="name" class="form-control" name="name" />
+                                                <input type="text" value="<?php echo $data['nom_complet'] ?>" class="form-control"id="name" class="form-control" name="name" />
 
                                             </div>
                                         </div>
@@ -36,7 +35,7 @@
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="genre">Genre</label>
-                                                <input type="text" id="genre" class="form-control" name="genre" />
+                                                <input type="text"value="<?php echo $data['genre'] ?>" id="genre" class="form-control" name="genre" />
 
                                             </div>
                                         </div>
@@ -44,7 +43,7 @@
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="matricule">Matricule</label>
-                                                <input type="text" id="matricule" class="form-control" name="matricule" />
+                                                <input type="text"value="<?php echo $data['matricule'] ?>" id="matricule" class="form-control" name="matricule" />
 
                                             </div>
                                         </div>
@@ -53,7 +52,7 @@
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="class">Class</label>
-                                                <input type="text" id="class" class="form-control" name="class" />
+                                                <input type="text"value="<?php echo $data['class'] ?>" id="class" class="form-control" name="class" />
 
                                             </div>
                                         </div>
@@ -62,7 +61,7 @@
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="matiere">matiere</label>
-                                                <input type="text" id="matiere" class="form-control" name="matiere" />
+                                                <input type="text"value="<?php echo $data['matiere'] ?>" id="matiere" class="form-control" name="matiere" />
 
                                             </div>
                                         </div>
@@ -71,13 +70,13 @@
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="phone">Phone</label>
-                                                <input type="text" id="phone" class="form-control" name="phone" />
+                                                <input type="text"value="<?php echo $data['phone'] ?>" id="phone" class="form-control" name="phone" />
 
                                             </div>
                                         </div>
 
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <input type="submit" class="btn btn-primary btn-lg" value="Add" style="width: 100px;">
+                                            <input type="submit" class="btn btn-primary btn-lg" value="Update" style="width: 100px;">
                                         </div>
 
                                     </form>

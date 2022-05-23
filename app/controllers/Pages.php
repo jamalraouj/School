@@ -27,6 +27,13 @@
       ];
       $this->view('pages/register', $data);
     }
+    public function updateprofessor(){
+     
+      $data = [
+        'title' => 'Update Professor'
+      ];
+      $this->view('pages/updateprofessor', $data);
+    }
     public function professors(){
       // array_push($data);
       // $data += array('title' => 'professors');
