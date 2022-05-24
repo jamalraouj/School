@@ -1,10 +1,14 @@
 <?php
+
   class Pages extends Controller{
     public function __construct(){
+      $this->checkSessions();
       
       $this->professorModel = $this->model('Professor');
-
       $this->adminModel = $this->model('admin');
+
+      $this->studentModel =$this->model('Student');
+
       $this->parentModel = $this->model('parentM');
     }
     public function index(){
@@ -26,6 +30,13 @@
         'title' => 'register'
       ];
       $this->view('pages/register', $data);
+    }
+    public function updateprofessor(){
+     
+      $data = [
+        'title' => 'Update Professor'
+      ];
+      $this->view('pages/updateprofessor', $data);
     }
     public function professors(){
       // array_push($data);
@@ -84,6 +95,17 @@
       $this->view('pages/dashborad', $data);
     }
     
+    
+    // public function students(){
+    //   $data = [
+    //     'title' => 'students'
+    //   ];
+      
+      
+
+    //   $this->view('pages/students',$data);
+    // }
+  
     public function parents(){
       $data = [
         'title' => 'parents'
@@ -98,17 +120,31 @@
 
       $this->view('pages/updatP', $data);
     }
+    
     public function students(){
       $data = [
-        'title' => 'students'
+        'title' => 'dashborad'
       ];
-
+      $data = $this->studentModel->getStudent();
       $this->view('pages/students',$data);
     }
-    public function tableStudiant(){
+    public function OneStudent(){
+      $data = [
+        'title' =>'modifierStudent'
+      ];
+      $data = $this->studentModel->getOneStudent();
+      $this->view('pages/modalUpdate',$data);
+    }
+       
+    public function modalUpdate(){
 
+<<<<<<< HEAD
       $data = $this->studentModel->getStudent();
       
+=======
+      // $data = $this->studentModel->getStudent();
+      $this->view('pages/modalUpdate');
+>>>>>>> main
     }
     function addparents(){
       $data = [
@@ -119,5 +155,11 @@
     }
 
     
-   
+   public function checkSessions(){
+      
+      if(!isset($_SESSION['username'])){
+        //  header('location:'.URLROOT.'/pages/index');
+         $this->view('pages/index');
+      }
+   }
   }
