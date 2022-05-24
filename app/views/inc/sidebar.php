@@ -6,10 +6,10 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link <?php if($_GET['url'] == "pages/dashborad"){ echo 'active';}; ?>" href="<?php echo URLROOT?>/pages/dashborad"><i class="fas fa-tachometer-alt"></i><span>Home</span></a></li>
-                    <li class="nav-item"><a class="nav-link <?php if($_GET['url'] == "pages/tableAdmin"){ echo 'active';}; ?>"  href="<?php echo URLROOT?>/pages/tableAdmin"><i class="fas fa-user"></i><span>Students</span></a></li>
+                    <li class="nav-item"><a class="nav-link <?php if($_GET['url'] == "pages/tableAdmin"){ echo 'active';}; ?>"  href="<?php echo URLROOT?>/pages/tableAdmin"><i class="fas fa-user"></i><span>Admins</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo URLROOT?>/pages/professors"><i class="fas fa-table"></i><span>Professors</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="parents.php"><i class="far fa-user-circle"></i><span>Parents</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="admins.php"><i class="fas fa-user-circle"></i><span>Admins</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo URLROOT?>/pages/parents"><i class="far fa-user-circle"></i><span>Parents</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo URLROOT?>/pages/students"><i class="fas fa-user-circle"></i><span>Students</span></a></li>
                     <li class="nav-item mt-5"><a class="nav-link" href="<?php echo URLROOT?>/pages/index"><i class="fas fa-user-circle"></i><span>Logout</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>

@@ -41,7 +41,7 @@ include_once APPROOT . '/views/inc/head.php'; ?>
                                     </thead>
                                     <tbody>
                                         <?php
-                                        var_dump($data);
+                                        // var_dump($data);
                                         // var_dump($data);
                                         foreach ($data as $Student) :
                                         ?>
@@ -79,7 +79,7 @@ include_once APPROOT . '/views/inc/head.php'; ?>
                 </div>
                
             </div>
-            <?php include APPROOT . '/includes/footer.php'; ?>
+            <?php include APPROOT . '/views/inc/footer.php'; ?>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
     <?php include_once APPROOT . '/views/inc/linkJS.php'; ?>
