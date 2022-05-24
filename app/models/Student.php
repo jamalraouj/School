@@ -19,7 +19,6 @@ class Student{
         return $this->db->single();
     }
     public function addStudent($datastudent){
-        var_dump($datastudent);
         $this->db->query('INSERT INTO `students`(`nom_complet`,`genre`, `matricule`, `class`, `parents`, `adresse`, `date_naissance`, `email`, `nom_parents`) VALUES (:nom_complet,:genre,:matricule,:class, :parents , :adresse, :date_naissance,:email, :nom_parents)');
         $this->db->bind(':nom_complet' ,$datastudent['nom_complet']);
         $this->db->bind(':genre' ,$datastudent['genre']);
