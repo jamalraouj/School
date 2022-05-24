@@ -35,10 +35,9 @@ public function getParent($idParent){
     return $this->db->single();
 }
 
-//UPDATE `parents` SET `id_parent`='[value-1]',`nom_complet`='[value-2]',`genre`='[value-3]',`matricule`='//[value-4]',`job`='[value-5]',`adresse`='[value-6]',`phone`='[value-7]' WHERE 1
+//UPDATE `parents`
 public function updateParent($idParent , $dataParent){
     // var_dump($dataParent);
-    // $this->db->query("UPDATE `parents` SET (`nom_complet`, `genre`, `matricule`, `job`, `adresse`,`phone`) VALUES (?,?,?,?,?,?) WHERE `id_parent` = ?");
     $this->db->query("UPDATE `parents` SET `nom_complet`=?,`genre`=?,`matricule`=?,`job`=?,`adresse`=?,`phone`= ? WHERE `id_parent` = ?");
     $this->db->bind(1 ,$dataParent['nom_complet']);
     $this->db->bind(2 ,$dataParent['genre']);

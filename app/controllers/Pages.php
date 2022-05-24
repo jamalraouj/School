@@ -108,8 +108,16 @@
     public function tableStudiant(){
 
       $data = $this->studentModel->getStudent();
-      $this->view('pages/Sudents',$data);
+      
     }
+    function addparents(){
+      $data = [
+        'title' => 'parents'
+      ];
+     
+        $this->view('pages/parents',$data);
+    }
+
     
    
   }
